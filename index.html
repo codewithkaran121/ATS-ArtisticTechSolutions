@@ -588,7 +588,7 @@
       <div class="acard">
         <h3>Request Free Audit</h3>
         <p>I'll WhatsApp your audit within 24 hours.</p>
-        <div class="af">
+        <!-- <div class="af">
           <div><div class="af-label">Your Name</div><input type="text" class="af-i" placeholder="Dr. Rahul Sharma"></div>
           <div><div class="af-label">WhatsApp Number</div><input type="text" class="af-i" placeholder="+91 98765 43210"></div>
           <div><div class="af-label">Clinic Name & City</div><input type="text" class="af-i" placeholder="Sharma Dental Clinic, Indore"></div>
@@ -605,7 +605,57 @@
           </div>
           <button class="af-btn" onclick="alert('Done! Yash will send your free audit on WhatsApp within 24 hours. 🙏')">Send My Request →</button>
           <div class="anote">No spam. No sales pressure. Just honest advice.</div>
-        </div>
+        </div> -->
+     
+     
+     
+     
+     
+     <div class="rv d1">
+  <div class="acard">
+    <h3>Request Free Audit</h3>
+    <p>I'll WhatsApp your audit within 24 hours.</p>
+
+    <form action="https://formspree.io/f/xqegdwgd" method="POST" class="af">
+
+      <div>
+        <div class="af-label">Your Name</div>
+        <input type="text" name="name" class="af-i" placeholder="Dr. Rahul Sharma" required>
+      </div>
+
+      <div>
+        <div class="af-label">WhatsApp Number</div>
+        <input type="text" name="phone" class="af-i" placeholder="+91 98765 43210" required>
+      </div>
+
+      <div>
+        <div class="af-label">Clinic Name & City</div>
+        <input type="text" name="clinic" class="af-i" placeholder="Sharma Dental Clinic, Indore">
+      </div>
+
+      <div>
+        <div class="af-label">Current online presence?</div>
+        <select name="presence" class="af-s">
+          <option value="">Select one</option>
+          <option>Nothing at all</option>
+          <option>Only WhatsApp</option>
+          <option>Website only</option>
+          <option>Social media only</option>
+          <option>Both but not growing</option>
+        </select>
+      </div>
+
+      <!-- Optional: redirect after submit -->
+      <input type="hidden" name="_redirect" value="https://yourwebsite.vercel.app/thankyou.html">
+
+      <button type="submit" class="af-btn">Send My Request →</button>
+
+    </form>
+
+    <div class="anote">No spam. No sales pressure. Just honest advice.</div>
+  </div>
+</div>
+     
       </div>
     </div>
   </div>
