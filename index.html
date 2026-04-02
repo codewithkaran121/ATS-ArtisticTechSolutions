@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Parmar — Digital Growth Partner for Clinics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #070707;
+    --s1: #101010;
+    --s2: #161616;
+    --gold: #C9A84C;
+    --gold2: #E8C76A;
+    --gdim: rgba(201,168,76,0.1);
+    --gborder: rgba(201,168,76,0.2);
+    --white: #F2EDE4;
+    --g1: #888;
+    --g2: #b0a99e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 52px;
+    background: rgba(7,7,7,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--gborder);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px;
+    color: var(--gold); letter-spacing: 0.03em;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--g1); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 400; transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-btn {
+    background: var(--gold); color: #070707;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 10px 22px; text-decoration: none; transition: background 0.25s;
+    white-space: nowrap;
+  }
+  .nav-btn:hover { background: var(--gold2); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 55% 45%;
+    align-items: center;
+    padding: 110px 52px 80px;
+    gap: 48px;
+    position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; right: -80px; top: 30%;
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 68%);
+    pointer-events: none;
+  }
+
+  .htag {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--gborder);
+    padding: 7px 14px; margin-bottom: 26px;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+    animation: fu 0.6s ease both;
+  }
+  .hpulse { width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 7px rgba(76,175,80,0.7); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 800; line-height: 1.05; letter-spacing: -0.02em;
+    animation: fu 0.6s 0.08s ease both;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+
+  .hero-p {
+    margin-top: 20px; font-size: 15px; color: var(--g2);
+    max-width: 430px; line-height: 1.8; font-weight: 300;
+    animation: fu 0.6s 0.16s ease both;
+  }
+
+  .hbtns {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-top: 34px;
+    animation: fu 0.6s 0.22s ease both;
+  }
+  .btn-g {
+    background: var(--gold); color: #070707;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 13px 26px; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block; transition: background 0.25s, transform 0.2s;
+  }
+  .btn-g:hover { background: var(--gold2); transform: translateY(-2px); }
+  .btn-o {
+    background: transparent; color: var(--white);
+    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 12px;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 13px 26px; border: 1px solid var(--gborder);
+    cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.25s, color 0.25s;
+  }
+  .btn-o:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+    animation: fu 0.6s 0.12s ease both;
+  }
+  .avail {
+    display: flex; align-items: center; gap: 9px;
+    border: 1px solid var(--gborder); padding: 10px 14px;
+    font-size: 12px; color: var(--g2); background: var(--s1);
+    width: 100%;
+  }
+  .stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%;
+  }
+  .stat {
+    background: var(--s1); border: 1px solid var(--gborder); padding: 18px 20px;
+  }
+  .stat-n { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: var(--gold); }
+  .stat-l { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g1); margin-top: 3px; }
+
+  /* COMMON */
+  section { padding: 92px 52px; }
+  .sl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .st {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 3.2vw, 46px);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+  }
+  .st span { color: var(--gold); }
+  hr.div { border: none; border-top: 1px solid var(--gborder); margin: 0 52px; }
+
+  /* ABOUT */
+  .about { background: var(--s1); }
+  .about-g {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    margin-top: 48px; align-items: start;
+  }
+  .abt-t p { color: var(--g2); font-size: 14px; line-height: 1.85; margin-bottom: 16px; }
+  .abt-t p b { color: var(--gold); font-weight: 500; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .tag {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--gborder); padding: 5px 12px;
+    color: var(--gold); background: var(--gdim);
+  }
+  .dlist { display: flex; flex-direction: column; }
+  .drow {
+    display: flex; gap: 14px; padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04); align-items: flex-start;
+  }
+  .dic { font-size: 16px; flex-shrink: 0; margin-top: 3px; }
+  .dlabel { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g1); }
+  .dval { font-size: 14px; color: var(--white); margin-top: 4px; font-weight: 400; }
+
+  /* SERVICES */
+  .svcs-g {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 2px; margin-top: 48px;
+  }
+  .svc {
+    background: var(--s1); padding: 30px 24px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  }
+  .svc:hover { border-color: var(--gold); background: var(--s2); transform: translateY(-4px); }
+  .svc-i { font-size: 22px; margin-bottom: 16px; }
+  .svc-n { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .svc-d { font-size: 13px; color: var(--g1); line-height: 1.75; }
+  .svc-p { margin-top: 16px; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); }
+
+  /* WORK */
+  .work { background: var(--s1); }
+  .notice {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(201,168,76,0.06); border: 1px solid var(--gborder);
+    border-left: 4px solid var(--gold); padding: 18px 22px;
+    margin: 36px 0 36px;
+  }
+  .notice p { font-size: 13px; color: var(--g2); line-height: 1.75; }
+  .notice p b { color: var(--gold); font-weight: 500; }
+
+  .cases { display: flex; flex-direction: column; gap: 2px; }
+  .case {
+    background: var(--bg);
+    display: grid; grid-template-columns: 260px 1fr;
+    transition: transform 0.25s;
+  }
+  .case:hover { transform: scale(1.003); }
+  .cl {
+    padding: 36px 28px; border-right: 1px solid var(--gborder);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .cbadge {
+    display: inline-block; font-size: 9px; letter-spacing: 0.14em;
+    text-transform: uppercase; background: var(--gdim); color: var(--gold);
+    border: 1px solid var(--gborder); padding: 4px 10px; margin-bottom: 18px;
+  }
+  .cnum { font-family: 'Syne', sans-serif; font-size: 44px; font-weight: 800; color: rgba(201,168,76,0.13); line-height: 1; }
+  .cind { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .cname { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; line-height: 1.25; }
+  .cloc { font-size: 12px; color: var(--g1); margin-top: 5px; }
+  .cr { padding: 36px 42px; }
+  .cwhat { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+  .cdesc { font-size: 13px; color: var(--g2); line-height: 1.85; margin-bottom: 22px; }
+  .ctags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .ctag {
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--gdim); color: var(--gold);
+    border: 1px solid var(--gborder); padding: 4px 10px;
+  }
+
+  /* FREE AUDIT */
+  .audit {
+    background: var(--bg);
+    border-top: 1px solid var(--gborder); border-bottom: 1px solid var(--gborder);
+    position: relative; overflow: hidden;
+  }
+  .audit::before {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px; height: 350px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .audit-in { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .abadge {
+    display: inline-block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    background: var(--gold); color: #070707; font-weight: 700; padding: 6px 14px; margin-bottom: 22px;
+  }
+  .atitle {
+    font-family: 'Syne', sans-serif; font-size: clamp(26px, 2.8vw, 42px);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px;
+  }
+  .atitle span { color: var(--gold); }
+  .adesc { font-size: 14px; color: var(--g2); line-height: 1.8; margin-bottom: 24px; }
+  .apts { display: flex; flex-direction: column; gap: 12px; }
+  .apt { display: flex; gap: 11px; font-size: 13px; color: var(--g2); align-items: flex-start; }
+  .apt-chk { color: var(--gold); flex-shrink: 0; margin-top: 2px; font-size: 13px; }
+
+  .acard { background: var(--s1); border: 1px solid var(--gborder); padding: 32px 28px; }
+  .acard h3 { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700; margin-bottom: 5px; }
+  .acard p { font-size: 12px; color: var(--g1); margin-bottom: 24px; }
+  .af { display: flex; flex-direction: column; gap: 13px; }
+  .af-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g1); margin-bottom: 6px; }
+  .af-i, .af-s {
+    background: var(--bg); border: 1px solid var(--gborder);
+    color: var(--white); padding: 12px 14px; font-size: 13px;
+    font-family: 'Outfit', sans-serif; font-weight: 300;
+    outline: none; transition: border-color 0.25s; width: 100%;
+    -webkit-appearance: none;
+  }
+  .af-s option { background: #111; }
+  .af-i::placeholder { color: var(--g1); }
+  .af-i:focus, .af-s:focus { border-color: var(--gold); }
+  .af-btn {
+    background: var(--gold); color: #070707;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 15px; border: none; cursor: pointer; width: 100%;
+    transition: background 0.25s; margin-top: 4px;
+  }
+  .af-btn:hover { background: var(--gold2); }
+  .anote { font-size: 11px; color: var(--g1); text-align: center; margin-top: 9px; }
+
+  /* PRICING */
+  .pg { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 48px; }
+  .pc { background: var(--s1); padding: 34px 26px; transition: transform 0.25s; position: relative; }
+  .pc.hot { background: var(--gold); }
+  .pc:hover { transform: translateY(-5px); }
+  .hot-badge {
+    position: absolute; top: -12px; right: 18px;
+    background: var(--bg); color: var(--gold);
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 10px; border: 1px solid var(--gborder);
+    font-family: 'Syne', sans-serif; font-weight: 700;
+  }
+  .ptier { font-size: 10px; letter-spacing: 0.17em; text-transform: uppercase; color: var(--g1); margin-bottom: 16px; }
+  .pc.hot .ptier { color: rgba(0,0,0,0.5); }
+  .pamount { font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 800; line-height: 1; }
+  .pc.hot .pamount { color: #070707; }
+  .pperiod { font-size: 12px; color: var(--g1); margin-bottom: 10px; }
+  .pc.hot .pperiod { color: rgba(0,0,0,0.45); }
+  .psub { font-size: 11px; color: var(--g2); margin-bottom: 24px; font-style: italic; }
+  .pc.hot .psub { color: rgba(0,0,0,0.55); }
+  .plist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .plist li { font-size: 12px; color: var(--g2); display: flex; gap: 9px; align-items: flex-start; line-height: 1.5; }
+  .plist li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .pc.hot .plist li { color: rgba(0,0,0,0.65); }
+  .pc.hot .plist li::before { color: rgba(0,0,0,0.45); }
+  .paddon { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); }
+  .pc.hot .paddon { border-top-color: rgba(0,0,0,0.15); }
+  .paddon-title { font-size: 9px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--g1); margin-bottom: 8px; }
+  .pc.hot .paddon-title { color: rgba(0,0,0,0.45); }
+  .pbtn {
+    margin-top: 24px; width: 100%; padding: 12px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--gborder); background: transparent;
+    color: var(--white); cursor: pointer; transition: all 0.25s;
+  }
+  .pc.hot .pbtn { background: #070707; color: var(--gold); border-color: transparent; }
+  .pbtn:hover { background: var(--gold); color: #070707; border-color: var(--gold); }
+
+  /* CONTACT */
+  .contact { background: var(--s1); }
+  .cg { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; }
+  .cdesc-p { font-size: 14px; color: var(--g2); line-height: 1.8; margin-top: 14px; }
+  .clinks { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+  .clink {
+    display: flex; align-items: center; gap: 13px;
+    text-decoration: none; color: var(--white); font-size: 13px;
+    padding: 13px 15px; border: 1px solid var(--gborder);
+    background: var(--bg); transition: all 0.25s;
+  }
+  .clink:hover { border-color: var(--gold); color: var(--gold); }
+  .clink .ci { font-size: 16px; width: 20px; text-align: center; }
+  .cf2 { display: flex; flex-direction: column; gap: 13px; }
+  .cf2-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g1); margin-bottom: 6px; }
+  .cf2-i, .cf2-ta {
+    background: var(--bg); border: 1px solid var(--gborder);
+    color: var(--white); padding: 12px 14px; font-size: 13px;
+    font-family: 'Outfit', sans-serif; font-weight: 300;
+    outline: none; transition: border-color 0.25s; width: 100%;
+  }
+  .cf2-ta { min-height: 100px; resize: vertical; }
+  .cf2-i::placeholder, .cf2-ta::placeholder { color: var(--g1); }
+  .cf2-i:focus, .cf2-ta:focus { border-color: var(--gold); }
+  .cf2-btn {
+    background: var(--gold); color: #070707;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 14px; border: none; cursor: pointer; transition: background 0.25s;
+  }
+  .cf2-btn:hover { background: var(--gold2); }
+
+  /* FOOTER */
+  footer {
+    padding: 26px 52px; display: flex;
+    justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--gborder);
+  }
+  .flogo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; color: var(--gold); }
+  .ftxt { font-size: 11px; color: var(--g1); }
+
+  /* ANIMATIONS */
+  @keyframes fu { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+  .rv { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .rv.on { opacity: 1; transform: none; }
+  .d1 { transition-delay: 0.06s; } .d2 { transition-delay: 0.12s; } .d3 { transition-delay: 0.18s; }
+
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  @media (max-width: 940px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 96px 20px 56px; gap: 36px; }
+    section { padding: 60px 20px; }
+    hr.div { margin: 0 20px; }
+    .about-g, .audit-in, .cg { grid-template-columns: 1fr; gap: 36px; }
+    .svcs-g, .pg { grid-template-columns: 1fr; }
+    .case { grid-template-columns: 1fr; }
+    .cl { border-right: none; border-bottom: 1px solid var(--gborder); padding: 26px 20px; }
+    .cr { padding: 26px 20px; }
+    footer { flex-direction: column; gap: 8px; padding: 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Yash Parmar × ATS</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#audit">Free Audit</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#audit" class="nav-btn">Free Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="htag"><div class="hpulse"></div>Accepting New Clients · April 2026</div>
+    <h1>I help <em>clinics</em><br>get more<br>patients online.</h1>
+    <p class="hero-p">Website. Social Media. Meta Ads. AI Automation. — All under one roof, run by a founder who personally handles your growth.</p>
+    <div class="hbtns">
+      <a href="#audit" class="btn-g">Get Free Clinic Audit</a>
+      <a href="#work" class="btn-o">See Sample Work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="avail"><div class="hpulse"></div>Only 3 slots open this month — first come, first served</div>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">₹5K</div><div class="stat-l">Starts From</div></div>
+      <div class="stat"><div class="stat-n">72hr</div><div class="stat-l">Site Delivery</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Niche Focused</div></div>
+      <div class="stat"><div class="stat-n">1:1</div><div class="stat-l">Direct Access</div></div>
+    </div>
+  </div>
+  <div class="hero-glow"></div>
+</section>
+
+<hr class="div">
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="sl">About</div>
+  <div class="st">The person behind<br><span>your growth.</span></div>
+  <div class="about-g">
+    <div class="abt-t rv">
+      <p>I'm <b>Yash Parmar</b>, founder of <b>Artistic Tech Solutions (ATS)</b> — a digital marketing agency in Indore, built exclusively for doctors and clinics.</p>
+      <p>Most agencies assign a junior to your account and charge senior prices. With ATS, you work <b>directly with the founder</b> — no middlemen, no delays. I personally handle your strategy, design, ads, and content.</p>
+      <p>My goal is simple: <b>more patients walking into your clinic every month.</b> Not just followers. Real, appointment-ready patients who found you online.</p>
+      <div class="tags">
+        <span class="tag">Meta Ads</span>
+        <span class="tag">Website Design</span>
+        <span class="tag">Social Media</span>
+        <span class="tag">Graphic Design</span>
+        <span class="tag">Video Editing</span>
+        <span class="tag">AI Automation</span>
+        <span class="tag">WhatsApp Marketing</span>
+        <span class="tag">Google My Business</span>
+      </div>
+    </div>
+    <div class="dlist rv d1">
+      <div class="drow"><div class="dic">👤</div><div><div class="dlabel">Founder</div><div class="dval">Yash Parmar</div></div></div>
+      <div class="drow"><div class="dic">🏢</div><div><div class="dlabel">Agency</div><div class="dval">Artistic Tech Solutions (ATS)</div></div></div>
+      <div class="drow"><div class="dic">📍</div><div><div class="dlabel">Based In</div><div class="dval">Indore, Madhya Pradesh</div></div></div>
+      <div class="drow"><div class="dic">🎯</div><div><div class="dlabel">Niche</div><div class="dval">Doctors · Clinics · Healthcare</div></div></div>
+      <div class="drow"><div class="dic">🛠️</div><div><div class="dlabel">Team</div><div class="dval">Founder + AI Specialist + Web Developer</div></div></div>
+      <div class="drow"><div class="dic">📞</div><div><div class="dlabel">WhatsApp</div><div class="dval">+91 [Your Number]</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sl">Services</div>
+  <div class="st">Everything your clinic<br>needs — <span>one partner.</span></div>
+  <div class="svcs-g">
+    <div class="svc rv"><div class="svc-i">🌐</div><div class="svc-n">Website Design</div><div class="svc-d">Professional clinic website with WhatsApp booking, Google Maps, service pages, gallery. Mobile-first. Delivered in 72 hours.</div><div class="svc-p">Starting ₹8,000</div></div>
+    <div class="svc rv d1"><div class="svc-i">📱</div><div class="svc-n">Social Media Management</div><div class="svc-d">12 posts + 3 reels every month. Strategy, design, captions — everything handled. Your clinic stays active online while you focus on patients.</div><div class="svc-p">Starting ₹5,000/month</div></div>
+    <div class="svc rv d2"><div class="svc-i">🎯</div><div class="svc-n">Meta Ads</div><div class="svc-d">Facebook & Instagram ads targeting patients in your city searching for your specialty. Creative, copy, targeting, optimization — all included.</div><div class="svc-p">Starting ₹5,000/month + ad spend</div></div>
+    <div class="svc rv"><div class="svc-i">🤖</div><div class="svc-n">AI Automation</div><div class="svc-d">Auto-reply to patient DMs, send appointment reminders, follow up with leads — 24/7, zero effort from your side.</div><div class="svc-p">Starting ₹8,000 setup</div></div>
+    <div class="svc rv d1"><div class="svc-i">📸</div><div class="svc-n">Photo & Video Shoot</div><div class="svc-d">Professional clinic shoot for your website and social media. Phone shoot or DSLR — we come to your clinic, you get ready-to-use content.</div><div class="svc-p">₹2,000 (Phone) · ₹3,000–5,000 (DSLR)</div></div>
+    <div class="svc rv d2"><div class="svc-i">📍</div><div class="svc-n">Google My Business</div><div class="svc-d">Get found when patients search "doctor near me". Full GMB setup, photos, categories, and review collection strategy.</div><div class="svc-p">Starting ₹2,000</div></div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- WORK / CONCEPT PROJECTS -->
+<section class="work" id="work">
+  <div class="sl">Sample Work</div>
+  <div class="st">What I can build<br><span>for your clinic.</span></div>
+
+  <div class="notice rv">
+    <div style="font-size:20px;flex-shrink:0">💡</div>
+    <p><b>Honest note:</b> These are self-initiated concept projects — built to show exactly what I deliver for real clients. Each one mirrors a real clinic brief. <b>I'd rather show honest skill than fake experience.</b> Be my first client in your category and you get this quality at a launch price.</p>
+  </div>
+
+  <div class="cases">
+
+    <div class="case rv">
+      <div class="cl">
+        <div class="cbadge">Concept Project</div>
+        <div class="cnum">01</div>
+        <div>
+          <div class="cind">Healthcare · Dental</div>
+          <div class="cname">Dental Clinic</div>
+          <div class="cloc">📍 Indore, Madhya Pradesh</div>
+        </div>
+      </div>
+      <div class="cr">
+        <div class="cwhat">The Brief</div>
+        <div class="cdesc">A dental clinic has no online presence. Patients can't find them on Google, there's no WhatsApp booking, and competitors with websites are taking their patients. Goal: build a premium, trust-building website that makes booking as easy as one tap.</div>
+        <div class="ctags">
+          <span class="ctag">5-Page Website</span>
+          <span class="ctag">WhatsApp Booking</span>
+          <span class="ctag">Google Maps</span>
+          <span class="ctag">Services Gallery</span>
+          <span class="ctag">Scroll Animations</span>
+          <span class="ctag">Mobile Optimized</span>
+          <span class="ctag">Custom HTML/CSS/JS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case rv">
+      <div class="cl">
+        <div class="cbadge">Concept Project</div>
+        <div class="cnum">02</div>
+        <div>
+          <div class="cind">Healthcare · Skin & Aesthetics</div>
+          <div class="cname">Skin Care Clinic</div>
+          <div class="cloc">📍 Indore, Madhya Pradesh</div>
+        </div>
+      </div>
+      <div class="cr">
+        <div class="cwhat">The Brief</div>
+        <div class="cdesc">A dermatology and aesthetics clinic wants to attract premium patients for treatments like HydraFacial, acne care, and laser. They need a website and Instagram presence that positions them as the go-to skin expert in the city — not just another clinic.</div>
+        <div class="ctags">
+          <span class="ctag">Luxury Website Design</span>
+          <span class="ctag">Before/After Gallery</span>
+          <span class="ctag">Treatment Pages</span>
+          <span class="ctag">Instagram Strategy</span>
+          <span class="ctag">Brand Identity</span>
+          <span class="ctag">WhatsApp Booking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case rv">
+      <div class="cl">
+        <div class="cbadge">Concept Project</div>
+        <div class="cnum">03</div>
+        <div>
+          <div class="cind">Healthcare · Physiotherapy</div>
+          <div class="cname">Physiotherapy Clinic</div>
+          <div class="cloc">📍 Indore, Madhya Pradesh</div>
+        </div>
+      </div>
+      <div class="cr">
+        <div class="cwhat">The Brief</div>
+        <div class="cdesc">A physiotherapy clinic gets patients only through referrals. They have no Instagram, no website, and no Google presence. Goal: build an end-to-end digital setup with Instagram content that educates patients and drives appointment bookings through Meta Ads.</div>
+        <div class="ctags">
+          <span class="ctag">Website Design</span>
+          <span class="ctag">Instagram Setup</span>
+          <span class="ctag">Educational Content</span>
+          <span class="ctag">Meta Ads</span>
+          <span class="ctag">Google My Business</span>
+          <span class="ctag">Patient Lead Gen</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FREE AUDIT -->
+<section class="audit" id="audit">
+  <div class="audit-in">
+    <div class="rv">
+      <div class="abadge">🎁 100% Free · Zero Strings</div>
+      <div class="atitle">Free digital audit<br>for your <span>clinic.</span></div>
+      <div class="adesc">I'll personally review your clinic's entire online presence — website, Instagram, Google — and tell you exactly what's missing and how to fix it. Delivered to your WhatsApp in 24 hours.</div>
+      <div class="apts">
+        <div class="apt"><div class="apt-chk">✓</div><div>Website — speed, design, booking flow</div></div>
+        <div class="apt"><div class="apt-chk">✓</div><div>Instagram — content gaps, branding, engagement</div></div>
+        <div class="apt"><div class="apt-chk">✓</div><div>Google My Business — are patients finding you?</div></div>
+        <div class="apt"><div class="apt-chk">✓</div><div>Competitor snapshot — what others in your city are doing</div></div>
+        <div class="apt"><div class="apt-chk">✓</div><div>Clear action plan — what to fix first and how</div></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <div class="acard">
+        <h3>Request Free Audit</h3>
+        <p>I'll WhatsApp your audit within 24 hours.</p>
+        <div class="af">
+          <div><div class="af-label">Your Name</div><input type="text" class="af-i" placeholder="Dr. Rahul Sharma"></div>
+          <div><div class="af-label">WhatsApp Number</div><input type="text" class="af-i" placeholder="+91 98765 43210"></div>
+          <div><div class="af-label">Clinic Name & City</div><input type="text" class="af-i" placeholder="Sharma Dental Clinic, Indore"></div>
+          <div>
+            <div class="af-label">Current online presence?</div>
+            <select class="af-s">
+              <option value="">Select one</option>
+              <option>Nothing at all</option>
+              <option>Only WhatsApp</option>
+              <option>Website only</option>
+              <option>Social media only</option>
+              <option>Both but not growing</option>
+            </select>
+          </div>
+          <button class="af-btn" onclick="alert('Done! Yash will send your free audit on WhatsApp within 24 hours. 🙏')">Send My Request →</button>
+          <div class="anote">No spam. No sales pressure. Just honest advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="sl">Pricing</div>
+  <div class="st">Simple plans.<br><span>No hidden charges.</span></div>
+  <div class="pg">
+
+    <div class="pc rv">
+      <div class="ptier">Starter</div>
+      <div class="pamount">₹5,000</div>
+      <div class="pperiod">/ month</div>
+      <div class="psub">Best for clinics starting out</div>
+      <ul class="plist">
+        <li>12 Social Media Posts/month</li>
+        <li>3 Reels/month</li>
+        <li>Caption Writing & Hashtags</li>
+        <li>Basic Graphic Design</li>
+        <li>Monthly Report</li>
+      </ul>
+      <div class="paddon">
+        <div class="paddon-title">Add-ons Available</div>
+        <ul class="plist">
+          <li>Website: ₹8,000 one-time</li>
+          <li>Phone Shoot: ₹2,000/session</li>
+          <li>DSLR Shoot: ₹3,000–5,000/session</li>
+        </ul>
+      </div>
+      <button class="pbtn" onclick="document.getElementById('audit').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+
+    <div class="pc hot rv d1">
+      <div class="hot-badge">★ Most Popular</div>
+      <div class="ptier">Growth</div>
+      <div class="pamount">₹12,000</div>
+      <div class="pperiod">/ month</div>
+      <div class="psub">Website + Full social management</div>
+      <ul class="plist">
+        <li>Professional Clinic Website</li>
+        <li>WhatsApp Booking Integration</li>
+        <li>Google My Business Setup</li>
+        <li>12 Posts + 3 Reels/month</li>
+        <li>Custom Graphic Creatives</li>
+        <li>Monthly Strategy Call</li>
+        <li>Monthly Performance Report</li>
+      </ul>
+      <div class="paddon">
+        <div class="paddon-title">Add-ons Available</div>
+        <ul class="plist">
+          <li>Phone Shoot: ₹2,000/session</li>
+          <li>DSLR Shoot: ₹3,000–5,000/session</li>
+        </ul>
+      </div>
+      <button class="pbtn" onclick="document.getElementById('audit').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+
+    <div class="pc rv d2">
+      <div class="ptier">Premium</div>
+      <div class="pamount">₹22,000</div>
+      <div class="pperiod">/ month</div>
+      <div class="psub">Full digital growth suite</div>
+      <ul class="plist">
+        <li>Everything in Growth</li>
+        <li>Meta Ads Management</li>
+        <li>WhatsApp Automation Setup</li>
+        <li>1 DSLR Shoot/month (included)</li>
+        <li>Reel Editing (2/month)</li>
+        <li>Bi-weekly Strategy Calls</li>
+        <li>Priority Support</li>
+      </ul>
+      <button class="pbtn" onclick="document.getElementById('audit').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="sl">Contact</div>
+  <div class="st">Let's talk about<br><span>your clinic's growth.</span></div>
+  <div class="cg">
+    <div class="rv">
+      <div class="cdesc-p">Book a free 15-minute call. I'll tell you exactly what your clinic needs online and what I'd do about it — no pitch, just honest advice. You decide what happens next.</div>
+      <div class="clinks">
+        <a href="https://wa.me/91XXXXXXXXXX" class="clink" target="_blank"><span class="ci">💬</span> WhatsApp: +91 [Your Number]</a>
+        <a href="mailto:yash@artistictechsolutions.com" class="clink"><span class="ci">📧</span> yash@artistictechsolutions.com</a>
+        <a href="https://instagram.com/marketingwithyashh" class="clink" target="_blank"><span class="ci">📸</span> @marketingwithyashh</a>
+        <a href="https://instagram.com/artistictechsolutions360" class="clink" target="_blank"><span class="ci">🏢</span> @artistictechsolutions360</a>
+      </div>
+    </div>
+    <div class="cf2 rv d1">
+      <div><div class="cf2-label">Your Name</div><input type="text" class="cf2-i" placeholder="Dr. Priya Joshi"></div>
+      <div><div class="cf2-label">WhatsApp Number</div><input type="text" class="cf2-i" placeholder="+91 98765 43210"></div>
+      <div><div class="cf2-label">Clinic</div><input type="text" class="cf2-i" placeholder="Joshi ENT Clinic, Indore"></div>
+      <div><div class="cf2-label">What do you need?</div><textarea class="cf2-ta" placeholder="Website, Ads, Social Media — anything on your mind..."></textarea></div>
+      <button class="cf2-btn" onclick="alert('Done! Yash will reach out on WhatsApp within 2 hours. 🙏')">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Artistic Tech Solutions</div>
+  <div class="ftxt">© 2026 · Indore, MP · Digital Growth for Clinics</div>
+  <div class="ftxt">Founder: Yash Parmar</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('on'), i * 65);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
